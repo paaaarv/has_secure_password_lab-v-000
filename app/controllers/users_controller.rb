@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     if params[:password] == params[:password_confirmation]
       @user = User.new(user_params).save
-      redirect_to '/homepage'
+      redirect_to '/login'
     else
       render :new
     end
