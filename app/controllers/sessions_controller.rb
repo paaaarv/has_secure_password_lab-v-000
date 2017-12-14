@@ -7,11 +7,11 @@ class SessionsController < ApplicationController
     @user = User.find_by(:name => params[:name])
     binding.pry
     if @user == nil
+      redirect_to '/users/new'
+    else
       return head(:forbidden) unless @user.auntheticate(params[:password])
       session[:user_id] = @user.id
       redirect_to '/users'
-    else
-      redirect_to '/users/new'
     end
   end
 end
