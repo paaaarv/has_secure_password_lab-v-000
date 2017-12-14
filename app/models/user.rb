@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     salt = BCrypt::Engine::generate_salt
     hashed = BCrypt::Engine::hash_secret(password,salt)
     self.password_digest == (salt,hashed)
+  end
 
   def authenticate(password)
 
