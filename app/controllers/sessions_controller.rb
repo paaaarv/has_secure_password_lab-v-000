@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(:name => params[:name])
-    binding.pry
     if @user == nil
       redirect_to '/users/new'
     else
