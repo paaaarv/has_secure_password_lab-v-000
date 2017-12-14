@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     if params[:password] == params[:password_confirmation]
       @user = User.new(user_params).save
       redirect_to '/homepage'
-    else 
-      render :new 
+    else
+      render :new
     end
   end
 
