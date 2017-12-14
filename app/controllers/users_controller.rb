@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     if user_params[:password] == user_params[:password_confirmation]
       @user = User.new(user_params)
       @user.save
-      binding.pry
       redirect_to '/login'
     else
       redirect_to '/users/new'
