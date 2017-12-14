@@ -1,3 +1,5 @@
+require 'pry'
+
 class SessionsController < ApplicationController
 
 
@@ -6,6 +8,7 @@ class SessionsController < ApplicationController
     if @user
       return head(:forbidden) unless @user.auntheticate(params[:password])
       session[:user_id] = @user.id
+      binding.pry
       redirect_to '/users'
     else
       redirect_to '/users/new'
