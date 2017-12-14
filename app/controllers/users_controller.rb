@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   def create
     if params[:password] == params[:password_confirmation]
-      binding.pry
       @user = User.new(user_params).save
       redirect_to '/homepage'
     else
