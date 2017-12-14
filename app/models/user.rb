@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
     salt = password[0..28]
     hashed = BCrypt::Engine::hash_secret(password, salt)
     if self.password_digest == (salt + hashed)
-      return self 
-    else 
-      return false 
-    end 
+      return self
+    else
+      return false
+    end
   end
 
 end
