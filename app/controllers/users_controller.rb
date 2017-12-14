@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params).save
       redirect_to '/login'
     else
-      render :new
+      redirect_to '/users/new'
     end
   end
 
