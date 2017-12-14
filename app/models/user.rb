@@ -3,10 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def authenticate(password)
-
-    salt = password[0..28]
-    hashed = BCrypt::Engine::hash_secret(password, salt)
-    if self.password_digest == (salt + hashed)
+    if self.password_digest == password
       return self
     else
       return false
