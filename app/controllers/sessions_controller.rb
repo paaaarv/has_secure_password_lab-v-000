@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user == nil
       redirect_to '/users/new'
     else
-      return head(:forbidden) unless @user.authenticate(params[:password])
+      return head(:forbidden) unless @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to '/users'
     end
