@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     if user_params[:password] == user_params[:password_confirmation]
       @user = User.new(user_params).save
       redirect_to '/login'
