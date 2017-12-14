@@ -3,6 +3,11 @@ gem 'bcrypt'
 class User < ActiveRecord::Base
   has_secure_password
 
+  def password=(password)
+    salt = BCrypt::Engine::generate_salt
+    hashed = BCrypt::Engine::hash_secret(password,salt)
+    self.password_digest == (salt,hashed)
+
   def authenticate(password)
 
     salt = password[0..28]
