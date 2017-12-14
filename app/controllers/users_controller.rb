@@ -1,3 +1,5 @@
+require 'pry'
+
 class UsersController < ApplicationController
 
   def index
@@ -7,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    binding.pry
     @user = User.new(user_params).save
 
   end
